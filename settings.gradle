@@ -1,0 +1,7 @@
+include ":app"
+include ":historyScreen"
+include ":core"
+include ":model"
+include ":repository"
+include ":utils"
+
