@@ -12,4 +12,9 @@
         android:title="@string/menu_title_history_room"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/menu_screen_settings"
+        android:icon="@drawable/ic_screen_settings"
+        android:title="@string/menu_title_screen_settings"
+        app:showAsAction="always" />
 </menu>

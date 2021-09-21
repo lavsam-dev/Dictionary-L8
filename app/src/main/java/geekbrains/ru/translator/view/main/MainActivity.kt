@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -158,6 +159,10 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
                 showAlertWithTextInputLayout(this@MainActivity)
                 true
             }
+            R.id.menu_screen_settings -> {
+                startActivityForResult(Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY), 42)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -196,7 +201,8 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
         injectDependencies()
         val viewModel: MainViewModel by currentScope.inject()
         model = viewModel
-        model.subscribe().observe(this@MainActivity, Observer<AppState> { renderData(it) })
+//        model.subscribe().observe(this@MainActivity, Observer<AppState> { renderData(it) })
+        model.subscribe().observe(this@MainActivity, { renderData(it) })
     }
 
     private fun initViews() {
